@@ -1,0 +1,56 @@
+from time import sleep
+from winsound import Beep
+
+#This will play the beep of each note
+def play(frequency, duration):
+    Beep(frequency, duration)
+
+#This is the basic frequency or the foundation of each note
+a = 440
+
+#This is an irrational number used in western music to show the 12 notes that are used in music or an octave. 
+twelfth_root_2 = 2 ** (1/12)
+
+tr2 = twelfth_root_2
+
+tr2sqrd = tr2 * tr2
+
+#This is the formula that is used to get each specific note
+b = int(round(a * tr2sqrd))
+g = int(round(a / tr2sqrd))
+f = int(round(g / tr2sqrd))
+e = int(round(f / tr2sqrd))
+d = int(round(e / tr2sqrd))
+c = int(round(d / tr2sqrd))
+
+#This is where the frequencies for each note is
+notes = {}
+notes['c'] = 523
+notes['d'] = 587
+notes['e'] = 659
+notes['f'] = 698
+notes['g'] = 784
+notes['a'] = 880
+notes['b'] = 988
+
+#This is the duration or how long he song will played
+duration = 225
+
+#This is the first line of music
+for note in ('c', 'c', 'd', 'e', 'd', 'c', 'd', 'e', 'd', 'c', 'd', 'e', 'd', 'd'):
+    print(note)
+    play(notes[note], duration)
+
+sleep (1.5)
+
+#This is the second line of music
+for note in ('c', 'c', 'd', 'e', 'd', 'c', 'd', 'e', 'd', 'c', 'd','e', 'd', 'd'):
+    play(notes[note], duration)
+    print(note)
+
+sleep (1.5)
+
+#This is the third line of music
+for note in ('c', 'c', 'd', 'd', 'c', 'c', 'd', 'd', 'c', 'c', 'd', 'd', 'c', 'c', 'c', 'a', 'g', 'f', 'e', 'e', 'd', 'c'):
+    play(notes[note], duration)
+    print(note)
